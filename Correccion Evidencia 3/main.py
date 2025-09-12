@@ -12,28 +12,33 @@ def main():
         print("No hay usuarios registrados. Registre el primer usuario (será admin).")
         gestor_usuarios.registrar_usuario(admin=True)
 
-    # Inicio de sesión
-    usuario = gestor_usuarios.iniciar_sesion()
-    if not usuario:
-        print("Inicio de sesión fallido.")
-        return
+    while True:
+        # Inicio de sesión
+        usuario = gestor_usuarios.iniciar_sesion()
+        if not usuario:
+            print("Inicio de sesión fallido.")
+            continue
 
-    # Automatización predefinida
-    def condicion():
-        return any(d.tipo.lower() == "luz" for d in gestor_dispositivos.dispositivos)
+        # Automatización predefinida
+        def condicion():
+            return any(d.tipo.lower() == "luz" for d in gestor_dispositivos.dispositivos)
 
-    def accion():
-        for dispositivo in gestor_dispositivos.dispositivos:
-            if dispositivo.tipo.lower() == "luz":
-                dispositivo.toggle()
+        def accion():
+            for dispositivo in gestor_dispositivos.dispositivos:
+                if dispositivo.tipo.lower() == "luz":
+                    dispositivo.toggle()
 
-    regla = ReglaAutomatizacion(condicion, accion, "Alternar luces encendidas/apagadas")
+        regla = ReglaAutomatizacion(condicion, accion, "Alternar luces encendidas/apagadas")
 
-    # Menú según rol
-    if usuario.rol == "admin":
-        mostrar_menu_admin(gestor_dispositivos, gestor_usuarios, regla)
-    else:
-        mostrar_menu_estandar(usuario, gestor_dispositivos, regla)
+        # Menú según rol
+        if usuario.rol == "admin":
+            salir = mostrar_menu_admin(gestor_dispositivos, gestor_usuarios, regla)
+        else:
+            salir = mostrar_menu_estandar(usuario, gestor_dispositivos, regla)
+
+        if salir:
+            print("Saliendo del sistema...")
+            break
 
 if __name__ == "__main__":
     main()

@@ -6,7 +6,8 @@ def mostrar_menu_estandar(usuario, gestor_dispositivos, regla):
         print("1. Consultar datos personales")
         print("2. Ejecutar automatización")
         print("3. Consultar dispositivos")
-        print("0. Salir")
+        print("0. Cerrar sesión")
+        print("9. Salir del sistema")
         opcion = input("Selecciona una opción: ").strip()
         if opcion == "1":
             print(f"\nUsuario: {usuario.nombre}\nRol: {usuario.rol}")
@@ -16,8 +17,10 @@ def mostrar_menu_estandar(usuario, gestor_dispositivos, regla):
             dispositivos = gestor_dispositivos.listar_dispositivos()
             mostrar_detalles_dispositivos(dispositivos)
         elif opcion == "0":
-            print("👋 Saliendo...")
-            break
+            print("Cerrando sesión...")
+            return False  # Volver al login
+        elif opcion == "9":
+            return True   # Salir del sistema
         else:
             print("❌ Opción inválida. Intenta de nuevo.")
 
@@ -27,7 +30,9 @@ def mostrar_menu_admin(gestor_dispositivos, gestor_usuarios, regla):
         print("1. Consultar automatización activa")
         print("2. Gestionar dispositivos")
         print("3. Modificar rol de usuario")
-        print("0. Salir")
+        print("4. Registrar nuevo usuario")
+        print("0. Cerrar sesión")
+        print("9. Salir del sistema")
         opcion = input("Selecciona una opción: ").strip()
         if opcion == "1":
             print(f"Automatización activa: {regla.descripcion}")
@@ -35,9 +40,13 @@ def mostrar_menu_admin(gestor_dispositivos, gestor_usuarios, regla):
             mostrar_menu_gestion_dispositivos(gestor_dispositivos)
         elif opcion == "3":
             gestor_usuarios.modificar_rol_usuario()
+        elif opcion == "4":
+            gestor_usuarios.registrar_usuario(admin=False)
         elif opcion == "0":
-            print("👋 Saliendo...")
-            break
+            print("Cerrando sesión...")
+            return False  # Volver al login
+        elif opcion == "9":
+            return True   # Salir del sistema
         else:
             print("❌ Opción inválida. Intenta de nuevo.")
 
