@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.2.1">
+  <diagram name="DER Smart Home" id="35PGFXX-8M7UHibYT5ke">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-1" value="Rol&#xa;PK rol_id&#xa;nombre (U)&#xa;descripcion" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="140" y="20" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-2" value="Usuario&#xa;PK usuario_id&#xa;username (U)&#xa;email (U)&#xa;password_hash&#xa;rol_id (FK)&#xa;telefono&#xa;fecha_registro&#xa;activo" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-3" value="Tipo_Dispositivo&#xa;PK tipo_id&#xa;nombre (U)&#xa;descripcion" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-5" value="Dispositivo_Config&#xa;PK config_id&#xa;dispositivo_id (FK)&#xa;clave&#xa;valor&#xa;tipo_valor" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="910" y="210" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-6" value="Automatizacion&#xa;PK automatizacion_id&#xa;nombre&#xa;descripcion&#xa;tipo&#xa;regla (JSON)&#xa;creada_por (FK)&#xa;activa&#xa;fecha_creacion" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#3399ff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-7" value="Automatizacion_Dispositivo&#xa;PK id&#xa;automatizacion_id (FK)&#xa;dispositivo_id (FK)&#xa;accion&#xa;parametros (JSON)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#ff9900;" vertex="1" parent="1">
+          <mxGeometry x="540" y="450" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-8" value="Registro_Evento&#xa;PK evento_id&#xa;dispositivo_id (FK)&#xa;usuario_id (FK)&#xa;tipo_evento&#xa;detalle (JSON)&#xa;fecha" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="1">
+          <mxGeometry x="910" y="430" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-9" value="Escenario&#xa;PK escenario_id&#xa;nombre&#xa;descripcion&#xa;creada_por (FK)&#xa;fecha_creacion" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="1">
+          <mxGeometry x="150" y="640" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-10" value="Escenario_Dispositivo&#xa;PK id&#xa;escenario_id (FK)&#xa;dispositivo_id (FK)&#xa;configuracion (JSON)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#e6b8af;strokeColor=#990000;" vertex="1" parent="1">
+          <mxGeometry x="900" y="640" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-11" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-1" target="AJ429CFKvsk9_v-JCgd0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-12" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-2" target="AJ429CFKvsk9_v-JCgd0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-13" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-3" target="AJ429CFKvsk9_v-JCgd0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-14" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-4" target="AJ429CFKvsk9_v-JCgd0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-15" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-2" target="AJ429CFKvsk9_v-JCgd0-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-16" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-6" target="AJ429CFKvsk9_v-JCgd0-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-17" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-4" target="AJ429CFKvsk9_v-JCgd0-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-18" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-4" target="AJ429CFKvsk9_v-JCgd0-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-19" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-4" target="AJ429CFKvsk9_v-JCgd0-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-20" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-2" target="AJ429CFKvsk9_v-JCgd0-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-21" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-9" target="AJ429CFKvsk9_v-JCgd0-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-22" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-4" target="AJ429CFKvsk9_v-JCgd0-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-23" value="" edge="1" parent="1" source="AJ429CFKvsk9_v-JCgd0-2" target="AJ429CFKvsk9_v-JCgd0-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="678" y="140" as="sourcePoint" />
+            <mxPoint x="755" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AJ429CFKvsk9_v-JCgd0-4" value="Dispositivo&#xa;PK dispositivo_id&#xa;serial (U)&#xa;nombre&#xa;tipo_id (FK)&#xa;propietario_id (FK)&#xa;estado_on&#xa;ubicacion&#xa;fecha_registro&#xa;ultima_actualizacion" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="567" y="200" width="260" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
