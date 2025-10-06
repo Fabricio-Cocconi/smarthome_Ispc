@@ -1,0 +1,26 @@
+Justificación Corregida del Diagrama de Clases
+
+Partiendo de las estructuras de datos del programa de consola y el modelo relacional de la evidencia 3, se diseñó el diagrama de clases que representa las entidades principales del sistema: Usuario, Dispositivo y ReglaAutomatizacion, junto con sus relaciones aplicando principios de POO.
+
+Abstracción:
+Cada clase representa una entidad concreta del sistema. Usuario encapsula información y funciones de una persona que usa el sistema. Dispositivo representa cualquier aparato inteligente. ReglaAutomatizacion maneja la lógica de automatización. Esto permite simplificar el sistema enfocándose en lo esencial.
+
+Encapsulamiento:
+Los atributos están protegidos (privados con _ ) y solo se modifican mediante métodos definidos. Esto mantiene la integridad de los datos y evita errores. Por ejemplo, el estado de un dispositivo solo cambia con cambiar_estado o toggle. Se definen getters y setters para acceso controlado.
+
+Herencia:
+Aunque no se muestra en el diagrama actual, se puede extender Dispositivo para subclases como Luces, Sensores o Cafeteras, reutilizando código y agregando funciones específicas.
+
+Composición:
+ReglaAutomatizacion está compuesto de condición y acción, que son funciones pasadas al constructor. Es una relación fuerte parte-todo, donde la regla no puede existir sin sus componentes. Se representa en el diagrama con una línea continua y un diamante lleno en el lado de la clase compuesta (ReglaAutomatizacion).
+
+Agregación:
+Si hubiera gestores (como GestorUsuarios), estos contendrían listas de objetos Usuario. Es una relación débil donde el gestor administra los usuarios, pero los usuarios pueden existir independientemente. Se representa con una línea discontinua y un diamante vacío en el lado del contenedor.
+
+Responsabilidad Única:
+Cada clase tiene una función clara: Usuario maneja autenticación, Dispositivo controla estado, ReglaAutomatizacion evalúa y ejecuta reglas. Esto facilita mantenimiento y entendimiento.
+
+Relaciones entre Clases:
+ReglaAutomatizacion depende de Dispositivo para ejecutar acciones, permitiendo automatización eficiente.
+
+En resumen, el diseño aplica principios de POO para lograr un sistema modular, escalable y fácil de mantener, con clases de responsabilidad única y relaciones bien definidas.

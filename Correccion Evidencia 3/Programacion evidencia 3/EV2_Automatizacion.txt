@@ -1,0 +1,17 @@
+Descripción de la Automatización Elegida para EV2
+
+Automatización Elegida: Modo Desayuno (encender luces de cocina y cafetera)
+
+Descripción:
+La automatización elegida es el "Modo Desayuno", que permite activar automáticamente las luces de la cocina y encender la cafetera para preparar el desayuno de manera conveniente.
+
+Funcionamiento:
+- Se implementa mediante la función modo_desayuno(gestor), que busca dispositivos de tipo "luz" con "cocina" en el nombre y dispositivos de tipo "cafetera".
+- Enciende las luces de cocina encontradas.
+- Enciende la cafetera si existe.
+- Imprime mensajes de confirmación y "¡Modo desayuno activado!".
+- Esta automatización se basa en reglas definidas en la clase ReglaAutomatizacion, evaluando condiciones y ejecutando acciones.
+
+Además, se incluye alternar_luces para controlar el estado de todas las luces.
+
+Esta funcionalidad mejora la comodidad en el hogar inteligente, automatizando rutinas diarias.

@@ -1,0 +1,35 @@
+Diagrama de Clases con Tipos de Datos Especificados
+
+Clase Dispositivo:
+- Atributos:
+  - nombre: str
+  - tipo: str
+  - estado: bool
+- Métodos:
+  - cambiar_estado(encender: bool = True) -> None
+  - toggle() -> None
+  - __str__() -> str
+
+Clase Usuario:
+- Atributos:
+  - nombre: str
+  - password: str
+  - rol: str
+- Métodos:
+  - verificar_password(password: str) -> bool
+  - nombre (property getter/setter)
+  - rol (property getter/setter)
+
+Clase ReglaAutomatizacion:
+- Atributos:
+  - condicion: callable (función que retorna bool)
+  - accion: callable (función a ejecutar)
+  - descripcion: str
+- Métodos:
+  - evaluar() -> bool
+  - condicion (property getter/setter)
+  - accion (property getter/setter)
+  - descripcion (property getter/setter)
+
+Relaciones:
+- (Agregar descripciones de relaciones si hay gestores, pero no están en las clases actuales)
