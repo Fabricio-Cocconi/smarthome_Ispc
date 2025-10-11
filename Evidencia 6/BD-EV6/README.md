@@ -15,8 +15,6 @@ El objetivo fue mantener la base simple, ordenada y facil de probar sin instalar
 
 ## Como probar los scripts online
 
-Si no queres instalar MySQL, podes usar paginas que permiten ejecutar SQL desde el navegador, como:
-
 - [OneCompiler (MySQL)](https://onecompiler.com/mysql)  
 - [RunSQL](https://runsql.com)
 
@@ -62,3 +60,4 @@ Si estas trabajando localmente, podes usar cualquier version reciente de MySQL o
 Estos scripts fueron pensados para acompañar la parte de programacion hecha en Python.  
 Permiten crear rapidamente la base `smarthome` y probar la conexion desde el sistema usando el patron DAO.  
 Con esto se completa la parte de base de datos de la evidencia 6 y se asegura que el sistema funcione de punta a punta.
+
