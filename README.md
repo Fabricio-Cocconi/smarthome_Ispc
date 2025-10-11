@@ -1,52 +1,80 @@
-# Proyecto SmartHome
+# Proyecto SmartHome - Evidencia 6
 
 **Grupo 18**  
-**Integrante: Fabricio Andres Cocconi Huenz - DNI 46708260**  
-**Carrera: TSDS - Tecnicatura Superior en Desarrollo de Software**  
+**Integrante:** Fabricio Andres Cocconi Huenz - DNI 46708260  
+**Carrera:** TSDS - Tecnicatura Superior en Desarrollo de Software  
 **Cohorte 2025 - ISPC**
 
-Este proyecto propone un sistema de hogar inteligente dividido en dos partes principales evidencia 3 y evidencia 5 aca te cuento que tiene cada una y como podes probar los scripts sin instalar nada
+Este trabajo pertenece a la evidencia 6 de Programacion I.  
+La idea fue seguir mejorando el proyecto SmartHome que se vino desarrollando en las entregas anteriores.  
+En esta parte se aplico el patron DAO y se ordeno el sistema en capas para que el codigo sea mas limpio y facil de mantener.
 
 ---
 
-## Evidencia 3 - modelo relacional y programacion inicial
+## Objetivo general
 
-En esta etapa se trabajo en el diseño de la base de datos se corrigieron errores en los atributos y claves y se definieron las tablas principales como usuario rol dispositivo y automatizacion
-
-Tambien se programaron las clases en python para representar usuarios dispositivos y automatizaciones el codigo permite registrar usuarios cambiar el estado de los dispositivos y crear reglas simples para automatizar tareas
-
----
-
-## Evidencia 5 - programacion orientada a objetos y base de datos
-
-En esta parte se mejoro el diseño del sistema usando principios de programacion orientada a objetos se agregaron pruebas unitarias para asegurar que el codigo funcione bien y se organizaron mejor las clases
-
-Ademas se creo la base de datos con scripts SQL uno para crear las tablas y otro para insertar datos de prueba los scripts son simples y siguen el modelo corregido de la evidencia 3
+El objetivo principal fue lograr un sistema que simule un hogar inteligente donde se puedan manejar usuarios y dispositivos desde un menu por consola.  
+Todo el sistema esta hecho en Python y conectado a una base de datos MySQL.  
+El enfoque fue usar buenas practicas y una estructura modular, separando las partes que manejan datos de las que manejan la logica del programa.
 
 ---
 
-## Como probar los scripts SQL en linea
+## Que tiene esta version
 
-Si queres probar la base sin instalar nada podes usar paginas que permiten ejecutar SQL desde el navegador como
-
-- [onecompiler mysql](https://onecompiler.com/mysql)  
-- [runsql](https://runsql.com)
-
-### pasos para ejecutar
-
-1 abri uno de los sitios  
-2 copia y pega el contenido del archivo `ddl.sql` que crea las tablas  
-3 ejecuta el script  
-4 despues copia y pega el contenido del archivo `dml.sql` que inserta los datos  
-5 vas a ver los resultados y podes explorar la base creada
+- Clases de dominio que representan usuarios, dispositivos y automatizaciones  
+- Clases DAO que se encargan del acceso a la base de datos  
+- Conexion real con MySQL usando una clase dedicada  
+- Menus mejorados y mas faciles de leer tanto para usuario comun como para administrador  
+- Sistema de inicio de sesion con usuarios cargados en la base  
+- Estructura de carpetas ordenada por tipo de archivo  
 
 ---
 
-## resumen
+## Estructura del proyecto
 
-- el proyecto tiene dos partes una para el diseño y otra para la programacion avanzada  
-- los scripts SQL son faciles de entender y usar  
-- se puede probar todo online sin instalar nada  
-- el codigo python esta organizado en modulos para manejar usuarios dispositivos y automatizaciones
+POO-SmartHome/
+│
+├── app/
+│ ├── dominio/ -> Clases de negocio
+│ ├── dao/ -> Clases DAO e interfaces
+│ ├── conn/ -> Conexion con MySQL
+│ └── main.py -> Programa principal con los menus
+│
+├── BD-Evidencia-6/ -> Scripts SQL (DDL y DML)
+│ └── README.md -> Guia para ejecutar los scripts
+│
+└── README.md -> Este archivo con la descripcion general
 
-Este readme fue escrito para que cualquier persona pueda entender el proyecto y usarlo sin complicaciones
+---
+
+## Como probar el sistema
+
+1. Crear la base `smarthome` ejecutando primero el archivo `ddl.sql`  
+2. Luego insertar los datos con el archivo `dml.sql`  
+3. Abrir `main.py` y ejecutar el programa con  
+4. Iniciar sesion con alguno de los usuarios cargados.  
+Por ejemplo:  
+- Usuario: Juan / Contraseña: pass1 (admin)  
+- Usuario: Maria / Contraseña: pass2 (estandar)
+
+El menu cambia segun el tipo de usuario que inicie sesion.
+
+---
+
+## Cambios respecto a las entregas anteriores
+
+En esta version el sistema ya esta completo.  
+Se agrego la conexion con MySQL y se aplico el patron DAO para separar las funciones.  
+Tambien se mejoro la experiencia del menu para que sea mas natural y simple de usar.  
+No se incluyo el registro de usuarios nuevos ni el cambio de rol porque no era obligatorio en esta entrega.  
+El foco fue mantener el codigo modular, ordenado y facil de entender.
+
+---
+
+## Resumen
+
+El proyecto SmartHome ahora esta totalmente funcional y con persistencia real de datos.  
+Usa Python y MySQL de forma integrada y sigue una estructura pensada para proyectos reales.  
+Se puede ejecutar sin configuraciones complicadas y refleja el trabajo hecho a lo largo de todas las evidencias.  
+
+Este archivo busca explicar de forma sencilla como esta armado el sistema y que se logro con esta ultima version.
