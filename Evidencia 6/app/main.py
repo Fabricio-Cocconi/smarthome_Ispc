@@ -5,7 +5,6 @@
 from conn.db_conn import DBConnection
 from dao.usuario_dao import UsuarioDAO
 from dao.dispositivo_dao import DispositivoDAO
-from dao.automatizacion_dao import AutomatizacionDAO
 
 # Funcion para separar visualmente las secciones del menu
 def separador():
@@ -18,18 +17,17 @@ def cabecera(texto):
     print("=" * 60)
 
 # ---------------------------------------------------------
-# Menu para los usuarios comunes
+# Menu para los usuarios comunes (solo lectura)
 # ---------------------------------------------------------
-def menu_estandar(usuario, dispositivo_dao, automatizacion_dao):
+def menu_estandar(usuario, dispositivo_dao):
     while True:
         separador()
         cabecera(f"Bienvenido {usuario['nombre']} al panel de SmartHome")
         print("Estas en tu menu personal de usuario")
-        print("Aqui podes ver tus datos y dispositivos\n")
+        print("Desde aqui podes consultar tus datos y dispositivos\n")
 
         print("1. Ver mis datos personales")
         print("2. Ver mis dispositivos")
-        print("3. Ver mis automatizaciones")
         print("0. Cerrar sesion")
         opcion = input("\nElige una opcion: ")
 
@@ -52,16 +50,6 @@ def menu_estandar(usuario, dispositivo_dao, automatizacion_dao):
                     estado = "Encendido" if d["estado"] else "Apagado"
                     print(f" - {d['nombre']} ({d['tipo']}) [{estado}]")
             input("\nPresiona Enter para volver al menu...")
-        elif opcion == "3":
-            separador()
-            autos = automatizacion_dao.listar_por_usuario(usuario["id"])
-            if not autos:
-                print("No tenes automatizaciones configuradas por ahora")
-            else:
-                print("Tus automatizaciones:")
-                for a in autos:
-                    print(f" - {a['nombre']} ({a['descripcion']})")
-            input("\nPresiona Enter para volver al menu...")
         elif opcion == "0":
             print("\nCerrando sesion...")
             break
@@ -69,16 +57,15 @@ def menu_estandar(usuario, dispositivo_dao, automatizacion_dao):
             print("Opcion no valida, intenta de nuevo")
 
 # ---------------------------------------------------------
-# Menu para los administradores
+# Menu para los administradores (CRUD de dispositivos)
 # ---------------------------------------------------------
-def menu_admin(usuario, usuario_dao, dispositivo_dao, automatizacion_dao):
+def menu_admin(usuario, usuario_dao, dispositivo_dao):
     while True:
         separador()
         cabecera(f"Panel de Administrador - {usuario['nombre']}")
         print("Hola admin, desde aqui podes gestionar usuarios y dispositivos\n")
         print("1. Ver todos los usuarios")
         print("2. Gestionar dispositivos")
-        print("3. Ver automatizaciones registradas")
         print("0. Cerrar sesion")
         opcion = input("\nElige una opcion: ")
 
@@ -123,16 +110,6 @@ def menu_admin(usuario, usuario_dao, dispositivo_dao, automatizacion_dao):
             else:
                 print("Opcion no valida")
             input("\nPresiona Enter para volver al menu principal...")
-        elif opcion == "3":
-            separador()
-            print("Automatizaciones registradas:\n")
-            autos = automatizacion_dao.listar_por_usuario(usuario["id"])
-            if not autos:
-                print("No hay automatizaciones cargadas")
-            else:
-                for a in autos:
-                    print(f"{a['id']} - {a['nombre']} ({a['descripcion']})")
-            input("\nPresiona Enter para continuar...")
         elif opcion == "0":
             print("\nCerrando sesion...")
             break
@@ -175,7 +152,6 @@ def main():
     # Se crean los objetos DAO para manejar los datos
     usuario_dao = UsuarioDAO(db)
     dispositivo_dao = DispositivoDAO(db)
-    automatizacion_dao = AutomatizacionDAO(db)
 
     # Bucle principal del programa
     while True:
@@ -184,9 +160,9 @@ def main():
             break
 
         if usuario["rol_id"] == 1:
-            menu_admin(usuario, usuario_dao, dispositivo_dao, automatizacion_dao)
+            menu_admin(usuario, usuario_dao, dispositivo_dao)
         else:
-            menu_estandar(usuario, dispositivo_dao, automatizacion_dao)
+            menu_estandar(usuario, dispositivo_dao)
 
         if input("\nDeseas salir del programa (s/n): ").lower() == "s":
             break
