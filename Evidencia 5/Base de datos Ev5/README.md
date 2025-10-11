@@ -12,4 +12,4 @@ Este directorio contiene los scripts DDL y DML para la base de datos SmartHome, 
 2. Copia y pega el contenido de `ddl.sql` y ejecuta para crear las tablas.
 3. Luego, copia y pega el contenido de `dml.sql` para insertar datos y ver las consultas.
 
-Nota: Los scripts están diseñados para MySQL. Si usas otro motor, ajusta sintaxis si es necesario (ej. PostgreSQL).
+Nota: Los scripts están diseñados para MySQL.

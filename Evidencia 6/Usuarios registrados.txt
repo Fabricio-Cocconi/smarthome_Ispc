@@ -1,0 +1,23 @@
+Usuarios registrados
+
+------------------
+     Admin
+------------------
+
+usuario contraseña
+
+juan    pass1
+
+carlos  pass5
+
+------------------
+   Estándar
+------------------
+
+usuario contraseña
+
+maria  pass2
+
+pedro  pass3
+
+lucia  pass4
